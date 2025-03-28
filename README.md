@@ -68,10 +68,10 @@ realice solo una que fue el de cliente, tiene búsqueda por cliente, material ta
 
 📌 Funcionalidades
 
-- 1️⃣ Inventario de Joyas (CRUD)
+- 1️⃣ Inventario de Joyas (CRUD) --> completo
 - ✅ Registrar nuevas joyas (nombre, material, peso, precio, stock).
 - ✅ Listar joyas disponibles en JTable.
-- ✅ Actualizar datos de una joya (precio, stock, etc.) --> actualiza solo el stock.
+- ✅ Actualizar datos de una joya (precio, stock, etc.)
 - ✅ Eliminar joyas del sistema.
 
 - 2️⃣ Módulo de Ventas
