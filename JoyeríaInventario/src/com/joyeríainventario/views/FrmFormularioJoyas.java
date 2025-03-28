@@ -7,10 +7,14 @@ package com.joyeríainventario.views;
 import com.joyeríainventario.dao.JoyaDAO;
 import com.joyeríainventario.models.Joya;
 import com.joyeríainventario.vos.JoyaVO;
+import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -475,43 +479,88 @@ public class FrmFormularioJoyas extends javax.swing.JFrame {
                 return;
             }
 
-            // Pedimos el nuevo valor del stock
-            String nuevaStockInput = JOptionPane.showInputDialog(null, "Ingrese el nuevo stock:", "Actualizar Stock", JOptionPane.QUESTION_MESSAGE);
+            // Creamos un formulario para actualizar los detalles de la joya JPanel panel = new JPanel(new GridLayout(0, 2)); // Layout con 2 columnas
+            JPanel panel = new JPanel(new GridLayout(0, 2));
+            // Añadimos los campos al formulario
+            JTextField txtNombre = new JTextField(joya.getNombre());
+            JTextField txtMaterial = new JTextField(joya.getMaterial());
+            JTextField txtPeso = new JTextField(String.valueOf(joya.getPeso()));
+            JTextField txtPrecio = new JTextField(String.valueOf(joya.getPrecio()));
+            JTextField txtStock = new JTextField(String.valueOf(joya.getStock()));
 
-            if (nuevaStockInput == null || nuevaStockInput.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debe ingresar un stock válido.");
-                return;
-            }
+            panel.add(new JLabel("Nombre:"));
+            panel.add(txtNombre);
+            panel.add(new JLabel("Material:"));
+            panel.add(txtMaterial);
+            panel.add(new JLabel("Peso:"));
+            panel.add(txtPeso);
+            panel.add(new JLabel("Precio:"));
+            panel.add(txtPrecio);
+            panel.add(new JLabel("Stock:"));
+            panel.add(txtStock);
 
-            // Convertimos el stock ingresado a entero
-            int nuevoStock;
-            try {
-                nuevoStock = Integer.parseInt(nuevaStockInput);
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "El stock debe ser un número entero.");
-                return;
-            }
+            // Mostramos el formulario al usuario
+            int option = JOptionPane.showConfirmDialog(null, panel, "Actualizar Joya", JOptionPane.OK_CANCEL_OPTION);
 
-            // Confirmamos la actualización
-            int confirmacion = JOptionPane.showConfirmDialog(null,
-                    "¿Estás seguro de desea actualizar el stock de esta Joya?",
-                    "Confirmar actualización",
-                    JOptionPane.YES_NO_OPTION);
+            if (option == JOptionPane.OK_OPTION) {
+                // Validamos y obtenemos los datos del formulario
+                String nombre = txtNombre.getText();
+                String material = txtMaterial.getText();
+                double peso;
+                double precio;
+                int stock;
 
-            // Procedemos si el usuario confirma
-            if (confirmacion == JOptionPane.YES_OPTION) {
-                // Actualizamos el stock
-                joya.setStock(nuevoStock);
-                eboTabla.modificarJoya(joya);
+                // Validamos el peso
+                try {
+                    peso = Double.parseDouble(txtPeso.getText());
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "El peso debe ser un número válido.");
+                    return;
+                }
 
-                // Mensaje de éxito
-                JOptionPane.showMessageDialog(null, "Stock de la Joya actualizado exitosamente");
+                // Validamos el precio
+                try {
+                    precio = Double.parseDouble(txtPrecio.getText());
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "El precio debe ser un número válido.");
+                    return;
+                }
 
-                // Actualizamos la tabla
-                listarJoya();
+                // Validamos el stock
+                try {
+                    stock = Integer.parseInt(txtStock.getText());
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "El stock debe ser un número entero.");
+                    return;
+                }
 
-                // Limpiamos los campos
-                limpiarCampos();
+                // Confirmamos la actualización
+                int confirmacion = JOptionPane.showConfirmDialog(null,
+                        "¿Está seguro de que desea actualizar los datos de esta Joya?",
+                        "Confirmar actualización",
+                        JOptionPane.YES_NO_OPTION);
+
+                // Procedemos si el usuario confirma
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    // Actualizamos la joya con los nuevos valores
+                    joya.setNombre(nombre);
+                    joya.setMaterial(material);
+                    joya.setPeso(peso);
+                    joya.setPrecio(precio);
+                    joya.setStock(stock);
+
+                    // Llamamos al método del DAO para actualizar la joya
+                    eboTabla.modificarJoya(joya);
+
+                    // Mensaje de éxito
+                    JOptionPane.showMessageDialog(null, "Joya actualizada exitosamente");
+
+                    // Actualizamos la tabla
+                    listarJoya();
+
+                    // Limpiamos los campos (si hay algún campo en la UI)
+                    limpiarCampos();
+                }
             }
         } catch (Exception e) {
             Logger.getLogger(FrmFormularioJoyas.class.getName()).log(Level.SEVERE, null, e);

@@ -3,8 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/esteb/Desktop/Archivos/Personal/Java%20Escritorio/JoyeríaInventario/src/com/joyeríainventario/views/HistorialVenta.java</file>
-            <file>file:/C:/Users/esteb/Desktop/Archivos/Personal/Java%20Escritorio/JoyeríaInventario/src/com/joyeríainventario/documentos/ExportarExcel.java</file>
+            <file>file:/C:/Users/esteb/Desktop/Archivos/Personal/Java%20Escritorio/JoyeríaInventario/src/com/joyeríainventario/dao/JoyaDAO.java</file>
+            <file>file:/C:/Users/esteb/Desktop/Archivos/Personal/Java%20Escritorio/JoyeríaInventario/src/com/joyeríainventario/views/FrmFormularioJoyas.java</file>
         </group>
     </open-files>
 </project-private>
