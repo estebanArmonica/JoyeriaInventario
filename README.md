@@ -14,6 +14,7 @@ Adicionalmente este proyecto se llevo a cabo con las diferentes herramientas:
 - [ ] iText 5 [Archivo jar para crear PDF](https://repo1.maven.org/maven2/com/itextpdf/itextpdf/5.5.13.2/itextpdf-5.5.13.2.jar)
 - [ ] Apache POI 3.7 [Archivo en GitHub](https://github.com/estebanArmonica/JoyeriaInventario/tree/main/dependecias)
 - [ ] PostgreSQL Conector 42.7.5 [Archivo en GitHub](https://github.com/estebanArmonica/JoyeriaInventario/tree/main/dependecias)
+- [ ] pgAdmin 17
 
 # Levantamiendo del Backup en PostgreSQL
 el proyecto esta creado con bases de datos PostgreSQL, para esto existe un archivo llamada [respaldo.backup](https://github.com/estebanArmonica/JoyeriaInventario/tree/main/Ejecutable%20y%20bakup), este Backup es que tiene que utilizar en pgAdmin para restaurar la base de datos.
