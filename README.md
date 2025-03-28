@@ -43,56 +43,55 @@ el proyecto esta creado con bases de datos PostgreSQL, para esto existe un archi
 Siéntase libre de enviar o expresar un feedback sobre el proyecto.
 
 
-# Problemas
+# Problemas Puntos faltantes (que no se pudieron lograr)
 
-Puntos faltantes (que no se pudieron lograr)
-
-3️⃣ Reporte Básico de Ventas
-
-
-✅ Joyas más vendidas.
-✅ Clientes con más compras.
+- 3️⃣ Reporte Básico de Ventas
+- ✅ Joyas más vendidas.
+- ✅ Clientes con más compras.
 
 se pudo crear la lista de las ventas pero estos tres puntos no se lograron concretar por problemas en el código, al final no las agregue.
 
-🔹 Extras Opcionales
-🔥 Búsqueda y filtrado avanzado por material, precio
+- 🔹 Extras Opcionales
+- 🔥 Búsqueda y filtrado avanzado por material, precio
 
 realice solo una que fue el de cliente, tiene búsqueda por cliente, material tambien pero no por tabla si no más bien para borrar una joya.
 
-Puntos logrados
 
-✅ Arquitectura MVC (Modelo-Vista-Controlador).
-✅ POO con clases JoyaVO, ClienteVO, VentaVO.
-✅ DAO para la gestión de la base de datos en PostgreSQL.
-✅ Java Swing para la interfaz gráfica con JTable.
-✅ Conexión con PostgreSQL utilizando JDBC y PreparedStatement.
-✅ Validaciones y manejo de excepciones.
+# Puntos logrados
+
+- ✅ Arquitectura MVC (Modelo-Vista-Controlador) -> el proyecto esta hecho con MVC llevando una buena organización en carpetas.
+- ✅ POO con clases JoyaVO, ClienteVO, VentaVO -> se crearon clases y VO.
+- ✅ DAO para la gestión de la base de datos en PostgreSQL -> Se crearon DAO para cada una de las clases.
+- ✅ Java Swing para la interfaz gráfica con JTable -> el proyecto esta bajo y hecho con Java Swing.
+- ✅ Conexión con PostgreSQL utilizando JDBC y PreparedStatement -> se utilizo PreparedStatement y ResulSet para las querys.
+- ✅ Validaciones y manejo de excepciones -> se utilizarion dos tipos de manejo de exceptiones `try-catch y throws` con metodos de validación como `validar el stock antes de realizar una compra`.
 
 📌 Funcionalidades
 
-1️⃣ Inventario de Joyas (CRUD)
+- 1️⃣ Inventario de Joyas (CRUD)
+- ✅ Registrar nuevas joyas (nombre, material, peso, precio, stock).
+- ✅ Listar joyas disponibles en JTable.
+- ✅ Actualizar datos de una joya (precio, stock, etc.) --> actualiza solo el stock.
+- ✅ Eliminar joyas del sistema.
 
-✅ Registrar nuevas joyas (nombre, material, peso, precio, stock).
-✅ Listar joyas disponibles en JTable.
-✅ Actualizar datos de una joya (precio, stock, etc.).
-✅ Eliminar joyas del sistema.
+- 2️⃣ Módulo de Ventas
 
-2️⃣ Módulo de Ventas
+- ✅ Registrar una venta seleccionando un cliente y joya --> registramos una venta con una joya y un cliente.
+- ✅ Validar stock antes de vender (si no hay suficiente stock, mostrar error) --> ademas primero validamos si tenemos el stock suficiente para validar la compra.
+- ✅ Actualizar stock tras cada venta --> el metodo de validar ademas nos hace el descuento para actualizar el stock.
+- ✅ Mostrar ventas en JTable con filtros por cliente o fecha.
 
-✅ Registrar una venta seleccionando un cliente y joya.
-✅ Validar stock antes de vender (si no hay suficiente stock, mostrar error).
-✅ Actualizar stock tras cada venta.
-✅ Mostrar ventas en JTable con filtros por cliente o fecha.
+- 3️⃣ Reporte Básico de Ventas
+- ✅ Total de ventas realizadas.
 
-3️⃣ Reporte Básico de Ventas
-✅ Total de ventas realizadas.
-
-🔹 Extras Opcionales
-🔥 Generar Facturas en PDF con iText.
-🔥 Exportar datos a Excel usando Apache POI.
+# 🔹 Extras Opcionales
+- 🔥 Generar Facturas en PDF con iText.
+- 🔥 Exportar datos a Excel usando Apache POI.
 
 Estos fueron los puntos logrados que se pudieron realizar sin problemas y que funcionan correctamente.
+
+La factura es algo simple pero rescata la información necesaria para un historial de ventas de compra
+El archivo Excel genera reportes en general y busqueda por filtros por cliente y fecha lo cual hace la busqueda más amigable
 
 Prueba Realizado por: Esteban Hernán Lobos Canales
 Correo: esteban.hernan.lobos@gmail.com
